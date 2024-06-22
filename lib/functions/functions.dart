@@ -25,7 +25,7 @@ addTodo(
 editodo(
     {required BuildContext context,
     required int id,
-   required keyupdate,
+    required keyupdate,
     required TextEditingController edittitlecontroller,
     required TextEditingController editdescriptioncontroller}) async {
   final title = edittitlecontroller.text;
@@ -34,6 +34,7 @@ editodo(
 
   if (keyupdate.currentState!.validate()) {
     await editTodb(val, id);
+    // ignore: use_build_context_synchronously
     Navigator.pop(context);
     edittitlecontroller.text = '';
     editdescriptioncontroller.text = '';

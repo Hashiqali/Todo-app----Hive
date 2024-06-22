@@ -2,19 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/model/todo_model.dart';
 import 'package:todo_app/screen/add_todo/add_todo.dart';
 import 'package:todo_app/screen/drawer/drawer.dart';
-
-import 'package:todo_app/screen/edit_todo/edit_todo.dart';
 import 'package:todo_app/functions/db_functions/db_functions.dart';
+import 'package:todo_app/screen/edit_todo/edit_todo.dart';
 import 'package:todo_app/widgets/delete_dialogue/delete_dialogue.dart';
 
-class TodoList extends StatefulWidget {
-  const TodoList({super.key});
+class Todolist extends StatefulWidget {
+  const Todolist({super.key});
 
   @override
-  State<TodoList> createState() => _TodoListState();
+  State<Todolist> createState() => _TodolistState();
 }
 
-class _TodoListState extends State<TodoList> {
+class _TodolistState extends State<Todolist> {
   @override
   void initState() {
     getTodoos();
@@ -72,7 +71,7 @@ class _TodoListState extends State<TodoList> {
                           if (value == 'edit') {
                             Navigator.of(context)
                                 .push(MaterialPageRoute(builder: (ctx) {
-                              return EditTodo(todo: data);
+                              return Edittodo(todo: data);
                             }));
                           } else if (value == 'delete') {
                             alertdialogue(context, data.id!);

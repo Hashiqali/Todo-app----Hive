@@ -9,11 +9,12 @@ class AddTodo extends StatefulWidget {
 }
 
 class _AddTodoState extends State<AddTodo> {
-  TextEditingController titlecontroller = TextEditingController();
-  TextEditingController descriptioncontroller = TextEditingController();
+  final TextEditingController titlecontroller = TextEditingController();
+  final TextEditingController descriptioncontroller = TextEditingController();
   GlobalKey addkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -35,8 +36,8 @@ class _AddTodoState extends State<AddTodo> {
             decoration: const InputDecoration(labelText: 'Title'),
             controller: titlecontroller,
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: size.height / 100,
           ),
           TextFormField(
             validator: (value) {
@@ -53,8 +54,8 @@ class _AddTodoState extends State<AddTodo> {
             maxLines: 8,
             controller: descriptioncontroller,
           ),
-          const SizedBox(
-            height: 30,
+          SizedBox(
+            height: size.height / 25,
           ),
           ElevatedButton(
               onPressed: () {

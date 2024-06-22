@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/functions/db_functions/db_functions.dart';
 import 'package:todo_app/functions/functions.dart';
-
 import 'package:todo_app/model/todo_model.dart';
-import 'package:todo_app/widgets/snackbar/snackbar.dart';
 
-class EditTodo extends StatefulWidget {
-  const EditTodo({super.key, required this.todo});
+class Edittodo extends StatefulWidget {
+  const Edittodo({super.key, required this.todo});
   final Todo todo;
   @override
-  State<EditTodo> createState() => _EditTodoState();
+  State<Edittodo> createState() => _EdittodoState();
 }
 
-class _EditTodoState extends State<EditTodo> {
+class _EdittodoState extends State<Edittodo> {
   @override
   void initState() {
     editdescriptioncontroller.text = widget.todo.description;
@@ -25,6 +22,7 @@ class _EditTodoState extends State<EditTodo> {
   GlobalKey keyupdate = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -46,8 +44,8 @@ class _EditTodoState extends State<EditTodo> {
             decoration: const InputDecoration(labelText: 'Title'),
             controller: edittitlecontroller,
           ),
-          const SizedBox(
-            height: 20,
+          SizedBox(
+            height: size.height / 100,
           ),
           TextFormField(
             validator: (value) {
@@ -64,8 +62,8 @@ class _EditTodoState extends State<EditTodo> {
             maxLines: 8,
             controller: editdescriptioncontroller,
           ),
-          const SizedBox(
-            height: 30,
+          SizedBox(
+            height: size.height / 25,
           ),
           ElevatedButton(
               onPressed: () {
